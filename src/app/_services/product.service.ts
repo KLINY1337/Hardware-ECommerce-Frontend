@@ -15,4 +15,8 @@ export class ProductService {
       product
     );
   }
+
+  public getAllProducts() {
+    return this.httpClient.get<Product[]>(this.PATH_OF_API + '/getAllProducts');
+  }
 }
