@@ -18,6 +18,9 @@ import { UserService } from './_services/user.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { AddNewProductComponent } from './add-new-product/add-new-product.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
     LoginComponent,
     HeaderComponent,
     ForbiddenComponent,
+    AddNewProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,8 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [
     AuthGuard,

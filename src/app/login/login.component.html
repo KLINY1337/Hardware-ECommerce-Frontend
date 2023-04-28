@@ -1,7 +1,36 @@
 <div class="container mt-5">
   <div class="card" style="padding: 20px">
     <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-      <input
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Имя пользователя</mat-label>
+        <input
+          matInput
+          placeholder="Введите ваш логин"
+          ngModel
+          name="userName"
+          id="userName"
+        />
+        <mat-hint>Логин</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100">
+        <mat-label>Пароль</mat-label>
+        <input
+          type="password"
+          matInput
+          placeholder="Введите ваш пароль"
+          ngModel
+          name="userPassword"
+          id="userPassword"
+        />
+        <mat-hint>Пароль</mat-hint>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" class="w-100">
+        Войти
+      </button>
+
+      <!-- <input
         type="text"
         ngModel
         name="userName"
@@ -24,6 +53,10 @@
         value="Login"
         class="btn btn-outline-primary form-control rounded-0"
       />
+    </form>
+  </div>
+</div>
+ -->
     </form>
   </div>
 </div>
