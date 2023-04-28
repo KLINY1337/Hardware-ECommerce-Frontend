@@ -16,6 +16,8 @@ export class ShowProductDetailsComponent {
     'Описание',
     'Цена без скидки',
     'Цена со скидкой',
+    'Изменить',
+    'Удалить',
   ];
 
   constructor(private productService: ProductService) {}
@@ -29,6 +31,17 @@ export class ShowProductDetailsComponent {
       (response: Product[]) => {
         console.log(response);
         this.productDetails = response;
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    );
+  }
+
+  deleteProduct(productId: number) {
+    this.productService.deleteProduct(productId).subscribe(
+      (response: any) => {
+        this.getAllProducts();
       },
       (error: HttpErrorResponse) => {
         console.log(error);

@@ -19,4 +19,10 @@ export class ProductService {
   public getAllProducts() {
     return this.httpClient.get<Product[]>(this.PATH_OF_API + '/getAllProducts');
   }
+
+  public deleteProduct(productId: number) {
+    return this.httpClient.delete(
+      this.PATH_OF_API + '/deleteProductDetails/' + productId
+    );
+  }
 }
