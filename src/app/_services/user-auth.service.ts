@@ -41,4 +41,12 @@ export class UserAuthService {
 
     return roles[0].roleName === 'User';
   }
+
+  public setUserFullName(userFirstName: string, userLastName: string) {
+    localStorage.setItem('userFullName', userFirstName + ' ' + userLastName);
+  }
+
+  public getUserFullName() {
+    return localStorage.getItem('userFullName')!;
+  }
 }

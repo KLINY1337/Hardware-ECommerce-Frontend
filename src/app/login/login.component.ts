@@ -21,6 +21,10 @@ export class LoginComponent {
       (response: any) => {
         this.userAuthService.setRoles(response.user.roles);
         this.userAuthService.setToken(response.jwtToken);
+        this.userAuthService.setUserFullName(
+          response.user.userFirstName,
+          response.user.userLastName
+        );
 
         const role = response.user.roles[0].roleName;
         if (role === 'Admin') {
@@ -33,5 +37,9 @@ export class LoginComponent {
         console.log(error);
       }
     );
+  }
+
+  registerUser() {
+    this.router.navigate(['/register']);
   }
 }

@@ -29,34 +29,20 @@
       <button mat-raised-button color="primary" type="submit" class="w-100">
         Войти
       </button>
-
-      <!-- <input
-        type="text"
-        ngModel
-        name="userName"
-        id="userName"
-        placeholder="Enter your username"
-        class="form-control mb-3"
-      />
-
-      <input
-        type="password"
-        ngModel
-        name="userPassword"
-        id="userPassword"
-        placeholder="Enter your password"
-        class="form-control mb-3"
-      />
-
-      <input
-        type="submit"
-        value="Login"
-        class="btn btn-outline-primary form-control rounded-0"
-      />
     </form>
-  </div>
-</div>
- -->
-    </form>
+    <div class="card text-center mt-3 p-3">
+      Впервые в магазине? Зарегистрируйтесь сейчас!
+
+      <button
+        class="mt-2"
+        type="button"
+        mat-raised-button
+        color="primary"
+        style="width: 30%; left: 50%; transform: translateX(-50%)"
+        (click)="registerUser()"
+      >
+        Регистрация
+      </button>
+    </div>
   </div>
 </div>
