@@ -31,6 +31,15 @@
       </td>
     </ng-container>
 
+    <ng-container matColumnDef="Картинки">
+      <th mat-header-cell *matHeaderCellDef>Картинки</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="showImages(element)">
+          <mat-icon>images</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
     <!-- edit button-->
     <ng-container matColumnDef="Изменить">
       <th mat-header-cell *matHeaderCellDef>Изменить</th>
