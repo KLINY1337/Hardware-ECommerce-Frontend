@@ -25,4 +25,10 @@ export class ProductService {
       this.PATH_OF_API + '/deleteProductDetails/' + productId
     );
   }
+
+  public getProductDetailsById(productId: any) {
+    return this.httpClient.get<Product>(
+      this.PATH_OF_API + '/getProductDetailsById/' + productId
+    );
+  }
 }

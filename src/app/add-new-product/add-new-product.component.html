@@ -48,8 +48,21 @@
             >
               Очистить поля
             </button>
-            <button mat-stroked-button color="primary" type="submit">
+            <button
+              mat-stroked-button
+              color="primary"
+              type="submit"
+              *ngIf="isNewProduct"
+            >
               Добавить товар
+            </button>
+            <button
+              mat-stroked-button
+              color="primary"
+              type="submit"
+              *ngIf="!isNewProduct"
+            >
+              Обновить товар
             </button>
           </div>
         </form>
