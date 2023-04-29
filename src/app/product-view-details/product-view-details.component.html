@@ -35,7 +35,12 @@
           }}</b>
         </div>
         <div class="mt-5 text-center">
-          <button mat-raised-button color="warn" style="width: 200px">
+          <button
+            mat-raised-button
+            color="warn"
+            style="width: 200px"
+            (click)="buyProduct(product.productId)"
+          >
             Купить сейчас
           </button>
         </div>

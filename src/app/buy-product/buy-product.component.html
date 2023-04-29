@@ -1,0 +1,59 @@
+<div class="container mt-5">
+  <div class="card p-3">
+    <div class="row">
+      <div class="col-6">
+        <form #orderForm="ngForm" (ngSubmit)="placeOrder(orderForm)">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Полное имя (ФИО)</mat-label>
+            <input
+              name="fullName"
+              matInput
+              placeholder="Иванов Иван Иванович"
+              [(ngModel)]="orderDetails.fullName"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Полный адрес</mat-label>
+            <input
+              name="fullAddress"
+              matInput
+              placeholder="Москва, г. Москва, ул. Пушкина, д. 5-Б, к. 3, стр. 4"
+              [(ngModel)]="orderDetails.fullAddress"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Контактный номер телефона</mat-label>
+            <input
+              name="contactNumber"
+              matInput
+              placeholder="+7-222-12-12"
+              [(ngModel)]="orderDetails.contactNumber"
+            />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Дополнительный номер телефона</mat-label>
+            <input
+              name="alternateContactNumber"
+              matInput
+              placeholder="+7-333-13-13"
+              [(ngModel)]="orderDetails.alternateContactNumber"
+            />
+          </mat-form-field>
+
+          <div align="right">
+            <button type="submit" mat-stroked-button color="primary">
+              Сделать заказ
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-6"></div>
+    </div>
+  </div>
+</div>
+
+<!-- [(ngModel)]="product.productName" -->
