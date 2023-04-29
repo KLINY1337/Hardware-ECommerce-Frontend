@@ -12,6 +12,7 @@ import { ProductResolveService } from './product-resolve.service';
 import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
 import { BuyProductComponent } from './buy-product/buy-product.component';
 import { BuyProductResolveService } from './buy-product-resolve.service';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -59,6 +60,13 @@ const routes: Routes = [
     resolve: {
       productDetails: BuyProductResolveService,
     },
+  },
+
+  {
+    path: 'orderConfirmation',
+    component: OrderConfirmationComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['User'] },
   },
 ];
 
