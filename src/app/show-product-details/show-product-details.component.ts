@@ -18,12 +18,10 @@ export class ShowProductDetailsComponent {
   displayedColumns: string[] = [
     'Артикул',
     'Название',
-    'Описание',
+    'description',
     'Цена без скидки',
     'Цена со скидкой',
-    'Картинки',
-    'Изменить',
-    'Удалить',
+    'Действия',
   ];
 
   constructor(
