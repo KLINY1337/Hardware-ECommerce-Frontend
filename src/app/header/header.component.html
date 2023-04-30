@@ -28,7 +28,7 @@
     mat-raised-button
     color="primary"
     routerLink="/cart"
-    *ngIf="isLoggedIn() && !isAdmin()"
+    *ngIf="!isAdmin()"
   >
     Корзина
   </button>
@@ -36,10 +36,11 @@
     mat-raised-button
     color="primary"
     routerLink="/userOrders"
-    *ngIf="isLoggedIn() && !isAdmin()"
+    *ngIf="!isAdmin()"
   >
     Мои заказы
   </button>
+
   <button
     *ngIf="isAdmin()"
     mat-raised-button
@@ -55,5 +56,13 @@
     routerLink="/showProductDetails"
   >
     Все товары
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    routerLink="/allOrders"
+    *ngIf="isAdmin()"
+  >
+    Все заказы
   </button>
 </mat-toolbar>

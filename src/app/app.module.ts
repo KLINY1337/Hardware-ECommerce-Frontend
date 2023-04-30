@@ -34,6 +34,7 @@ import { OrderConfirmationComponent } from './order-confirmation/order-confirmat
 import { RegisterComponent } from './register/register.component';
 import { CartComponent } from './cart/cart.component';
 import { UserOrdersComponent } from './user-orders/user-orders.component';
+import { AllOrdersComponent } from './all-orders/all-orders.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { UserOrdersComponent } from './user-orders/user-orders.component';
     RegisterComponent,
     CartComponent,
     UserOrdersComponent,
+    AllOrdersComponent,
   ],
   imports: [
     BrowserModule,

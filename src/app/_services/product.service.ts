@@ -77,4 +77,8 @@ export class ProductService {
   public getOrderDetails() {
     return this.httpClient.get<Order[]>(this.PATH_OF_API + '/getOrderDetails');
   }
+
+  public getAllOrders() {
+    return this.httpClient.get<Order[]>(this.PATH_OF_API + '/getAllOrders');
+  }
 }
