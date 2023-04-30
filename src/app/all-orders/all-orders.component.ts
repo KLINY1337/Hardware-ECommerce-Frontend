@@ -10,6 +10,8 @@ import { Order } from '../_model/order.model';
 export class AllOrdersComponent implements OnInit {
   orders: Order[] = [];
 
+  status: string = 'All';
+
   displayedColumns = [
     'Номер заказа',
     'Имя получателя',
@@ -23,11 +25,11 @@ export class AllOrdersComponent implements OnInit {
   ];
   constructor(private productService: ProductService) {}
   ngOnInit(): void {
-    this.getAllOrders();
+    this.getAllOrders(this.status);
   }
 
-  getAllOrders() {
-    this.productService.getAllOrders().subscribe(
+  getAllOrders(status: string) {
+    this.productService.getAllOrders(status).subscribe(
       (response) => {
         console.log(response);
         this.orders = response;
@@ -41,7 +43,7 @@ export class AllOrdersComponent implements OnInit {
   markOrderAsDelivered(orderId: any) {
     this.productService.markOrderAsDelivered(orderId).subscribe(
       (response) => {
-        this.getAllOrders();
+        this.getAllOrders(this.status);
       },
       (error) => {
         console.log(error);
