@@ -17,8 +17,14 @@ export class ProductService {
     );
   }
 
-  public getAllProducts() {
-    return this.httpClient.get<Product[]>(this.PATH_OF_API + '/getAllProducts');
+  public getAllProducts(pageNumber: number, searchKeyWord: string = '') {
+    return this.httpClient.get<Product[]>(
+      this.PATH_OF_API +
+        '/getAllProducts?pageNumber=' +
+        pageNumber +
+        '&searchKey=' +
+        searchKeyWord
+    );
   }
 
   public deleteProduct(productId: number) {

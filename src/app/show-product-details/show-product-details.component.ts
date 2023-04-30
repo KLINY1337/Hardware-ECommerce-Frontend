@@ -14,6 +14,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./show-product-details.component.css'],
 })
 export class ShowProductDetailsComponent {
+  pageNumber: number = 0;
+  showTable: boolean = false;
+  showLoadMoreProductButton = false;
   productDetails: Product[] = [];
   displayedColumns: string[] = [
     'Артикул',
@@ -35,9 +38,10 @@ export class ShowProductDetailsComponent {
     this.getAllProducts();
   }
 
-  public getAllProducts() {
+  public getAllProducts(searchKey: string = '') {
+    this.showTable = false;
     this.productService
-      .getAllProducts()
+      .getAllProducts(this.pageNumber, searchKey)
       .pipe(
         map((x: Product[], i: number) =>
           x.map((product: Product) =>
@@ -48,7 +52,15 @@ export class ShowProductDetailsComponent {
       .subscribe(
         (response: Product[]) => {
           console.log(response);
-          this.productDetails = response;
+          //this.productDetails = response;
+          response.forEach((p) => this.productDetails.push(p));
+          this.showTable = true;
+
+          if (response.length == 8) {
+            this.showLoadMoreProductButton = true;
+          } else {
+            this.showLoadMoreProductButton = false;
+          }
         },
         (error: HttpErrorResponse) => {
           console.log(error);
@@ -79,5 +91,22 @@ export class ShowProductDetailsComponent {
 
   editProductDetails(productId: number) {
     this.router.navigate(['/addNewProduct', { productId: productId }]);
+  }
+
+  loadMoreProduct() {
+    this.pageNumber++;
+    this.getAllProducts();
+  }
+
+  showAllProducts() {
+    this.pageNumber = -1;
+    this.productDetails = [];
+    this.getAllProducts();
+  }
+
+  searchByKeyWord(searchKeyWord: string) {
+    this.pageNumber = 0;
+    this.productDetails = [];
+    this.getAllProducts(searchKeyWord);
   }
 }

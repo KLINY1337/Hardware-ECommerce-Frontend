@@ -1,4 +1,16 @@
 <div class="container mt-5">
+  <mat-form-field appearance="outline" class="w-50">
+    <mat-label>Поиск товаров</mat-label>
+    <input
+      #searchKeyWord
+      (keyup)="searchByKeyWord(searchKeyWord.value)"
+      matInput
+      placeholder="Введите название или описание товаров"
+      name="searchKey"
+      id="searchKey"
+    />
+    <mat-hint></mat-hint>
+  </mat-form-field>
   <mat-grid-list cols="4" rowHeight="2:3" gutterSize="10">
     <mat-grid-tile *ngFor="let p of productDetails">
       <div class="row p-5">
@@ -50,4 +62,16 @@
       </div>
     </mat-grid-tile>
   </mat-grid-list>
+
+  <div class="text-center mt-1 p-5">
+    <button
+      type="button"
+      mat-raised-button
+      color="primary"
+      (click)="loadMoreProduct()"
+      *ngIf="showLoadButton"
+    >
+      Показать больше
+    </button>
+  </div>
 </div>
