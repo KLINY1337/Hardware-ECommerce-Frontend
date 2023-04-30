@@ -33,6 +33,12 @@ export class ProductService {
     );
   }
 
+  public deleteCart(cartId: number) {
+    return this.httpClient.delete(
+      this.PATH_OF_API + '/deleteCartItem/' + cartId
+    );
+  }
+
   public getProductDetailsById(productId: any) {
     return this.httpClient.get<Product>(
       this.PATH_OF_API + '/getProductDetailsById/' + productId

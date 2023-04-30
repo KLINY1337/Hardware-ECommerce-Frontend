@@ -16,6 +16,7 @@ export class CartComponent implements OnInit {
     'description',
     'Цена без скидки',
     'Цена со скидкой',
+    'Действия',
   ];
 
   constructor(private productService: ProductService, private router: Router) {}
@@ -42,5 +43,17 @@ export class CartComponent implements OnInit {
         id: -1,
       },
     ]);
+  }
+
+  deleteCart(cartId: any) {
+    this.productService.deleteCart(cartId).subscribe(
+      (response) => {
+        console.log(response);
+        this.getCartDetails();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
