@@ -52,8 +52,11 @@ export class ProductService {
     );
   }
 
-  public placeOrder(orderDetails: OrderDetails) {
-    return this.httpClient.post(this.PATH_OF_API + '/placeOrder', orderDetails);
+  public placeOrder(orderDetails: OrderDetails, isCartCheckout: boolean) {
+    return this.httpClient.post(
+      this.PATH_OF_API + '/placeOrder/' + isCartCheckout,
+      orderDetails
+    );
   }
 
   public addToCart(productId: any) {

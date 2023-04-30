@@ -14,6 +14,7 @@ import { UserAuthService } from '../_services/user-auth.service';
 export class BuyProductComponent implements OnInit {
   productDetails: Product[] = [];
 
+  isSingleProductCheckout: string | any = '';
   orderDetails: OrderDetails = {
     fullName: this.getUserFullName(),
     fullAddress: '',
@@ -30,7 +31,9 @@ export class BuyProductComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.productDetails = this.activatedRoute.snapshot.data['productDetails'];
-
+    this.isSingleProductCheckout = this.activatedRoute.snapshot.paramMap.get(
+      'isSingleProductCheckout'
+    );
     this.productDetails.forEach((x) =>
       this.orderDetails.orderProductQuantityList.push({
         productId: x.productId,
@@ -40,16 +43,18 @@ export class BuyProductComponent implements OnInit {
   }
 
   public placeOrder(orderForm: NgForm) {
-    this.productService.placeOrder(this.orderDetails).subscribe(
-      (response) => {
-        console.log(response);
-        orderForm.reset();
-        this.router.navigate(['/orderConfirmation']);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this.productService
+      .placeOrder(this.orderDetails, this.isSingleProductCheckout)
+      .subscribe(
+        (response) => {
+          console.log(response);
+          orderForm.reset();
+          this.router.navigate(['/orderConfirmation']);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 
   getQuantityForProduct(productId: any) {
