@@ -15,6 +15,7 @@ import { BuyProductResolveService } from './buy-product-resolve.service';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { RegisterComponent } from './register/register.component';
 import { CartComponent } from './cart/cart.component';
+import { UserOrdersComponent } from './user-orders/user-orders.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -75,6 +76,13 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['User'] },
+  },
+
+  {
+    path: 'userOrders',
+    component: UserOrdersComponent,
     canActivate: [AuthGuard],
     data: { roles: ['User'] },
   },

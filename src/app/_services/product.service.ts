@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../_model/product.model';
 import { OrderDetails } from '../_model/order-details.model';
+import { Order } from '../_model/order.model';
 
 @Injectable({
   providedIn: 'root',
@@ -71,5 +72,9 @@ export class ProductService {
 
   public getCartDetails() {
     return this.httpClient.get<Product[]>(this.PATH_OF_API + '/getCartDetails');
+  }
+
+  public getOrderDetails() {
+    return this.httpClient.get<Order[]>(this.PATH_OF_API + '/getOrderDetails');
   }
 }
