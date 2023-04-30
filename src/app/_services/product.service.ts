@@ -59,4 +59,8 @@ export class ProductService {
   public addToCart(productId: any) {
     return this.httpClient.get(this.PATH_OF_API + '/addToCart/' + productId);
   }
+
+  public getCartDetails() {
+    return this.httpClient.get<Product[]>(this.PATH_OF_API + '/getCartDetails');
+  }
 }

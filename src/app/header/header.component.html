@@ -23,6 +23,15 @@
 </mat-toolbar>
 <mat-toolbar color="primary" *ngIf="isLoggedIn()">
   <button mat-raised-button color="primary" routerLink="/">Главная</button>
+
+  <button
+    mat-raised-button
+    color="primary"
+    routerLink="/cart"
+    *ngIf="isLoggedIn() && !isAdmin()"
+  >
+    Корзина
+  </button>
   <button
     *ngIf="isAdmin()"
     mat-raised-button
