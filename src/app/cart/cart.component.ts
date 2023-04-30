@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../_model/product.model';
 import { ProductService } from '../_services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -17,7 +18,7 @@ export class CartComponent implements OnInit {
     'Цена со скидкой',
   ];
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private router: Router) {}
   ngOnInit(): void {
     this.getCartDetails();
   }
@@ -31,5 +32,15 @@ export class CartComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  checkout() {
+    this.router.navigate([
+      '/buyProduct',
+      {
+        isSingleProductCheckout: false,
+        id: -1,
+      },
+    ]);
   }
 }

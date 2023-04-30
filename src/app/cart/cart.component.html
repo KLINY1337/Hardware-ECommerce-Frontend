@@ -1,4 +1,9 @@
 <div class="mt-5 p-5">
+  <div class="mb-3" align="end">
+    <button mat-raised-button color="warn" type="button" (click)="checkout()">
+      Оформить заказ
+    </button>
+  </div>
   <table mat-table [dataSource]="productDetails" class="mat-elevation-z8">
     <ng-container matColumnDef="Артикул">
       <th mat-header-cell *matHeaderCellDef>Артикул</th>
