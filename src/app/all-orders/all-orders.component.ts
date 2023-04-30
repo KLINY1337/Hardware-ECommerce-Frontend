@@ -19,6 +19,7 @@ export class AllOrdersComponent implements OnInit {
     'Стоимость заказа',
     'Статус заказа',
     'Логин пользователя',
+    'Отметка о доставке',
   ];
   constructor(private productService: ProductService) {}
   ngOnInit(): void {
@@ -30,6 +31,17 @@ export class AllOrdersComponent implements OnInit {
       (response) => {
         console.log(response);
         this.orders = response;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  markOrderAsDelivered(orderId: any) {
+    this.productService.markOrderAsDelivered(orderId).subscribe(
+      (response) => {
+        this.getAllOrders();
       },
       (error) => {
         console.log(error);
